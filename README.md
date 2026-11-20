@@ -11,11 +11,7 @@ Each page links to the other.
 
 ## Content types on the map
 
-Pictures on the scrolling map are mostly books, with some workshops and events mixed through every cluster:
-
-- Books, about 80 percent, use a muted blue border (`#507DB0`)
-- Workshops, about 10 percent, use a soft coral border (`#D97775`)
-- Events and activities, about 10 percent, use an orange border (`#F28C28`)
+Pictures on the scrolling map are mostly books, with some workshops and events mixed through every cluster
 
 A legend stays fixed at the bottom right. Hovering a picture shows its title and type.
 
