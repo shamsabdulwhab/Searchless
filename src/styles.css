@@ -52,6 +52,12 @@ input {
   gap: 24px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+}
+
 .brand {
   display: flex;
   align-items: baseline;

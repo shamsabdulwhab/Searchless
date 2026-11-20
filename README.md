@@ -1,8 +1,27 @@
-# Searchless Library — Branching Discovery
+# Searchless Library
 
-An early single-page prototype. Visitors start with one row of three cards. Clicking a card reveals exactly one new row of three related offerings underneath. Earlier rows stay visible. Nothing advances on its own.
+An early prototype for Bibliotheek Eindhoven with two ways to explore the collection.
 
-Hover only highlights a card. It does not reveal extra text. **See More** opens a detail view and does not add a row. **Back** removes the latest row. Choosing a different card in an earlier row replaces the rows below it.
+## Pages
+
+- `/` is the free-scrolling map. Drag to move, scroll to travel, and hold Ctrl while scrolling to zoom. The pictures sit in clusters named Technology, Planting, Languages, History, and Community.
+- `/branching` is Branching Discovery. The page opens with three cards. Clicking a card adds one new row of three underneath. Earlier rows stay on the page. The trail runs for 25 levels. **See More** opens details and does not add a row. **Back** removes the latest row. Choosing a different card in an earlier row replaces the rows below it.
+
+Each page links to the other.
+
+## Content types on the map
+
+Pictures on the scrolling map are mostly books, with some workshops and events mixed through every cluster:
+
+- Books, about 80 percent, use a muted blue border (`#507DB0`)
+- Workshops, about 10 percent, use a soft coral border (`#D97775`)
+- Events and activities, about 10 percent, use an orange border (`#F28C28`)
+
+A legend stays fixed at the bottom right. Hovering a picture shows its title and type.
+
+Branching Discovery uses the History pictures. Each card is still labeled Book, Workshop, or Event, in about a 60 / 30 / 20 mix.
+
+Cards marked **Sample** were written for this demo. They are not confirmed current listings. MakersClub, the MakersPlaats machines, CoderDojo, and DigiCafé follow public descriptions from Bibliotheek Eindhoven.
 
 ## Run
 
@@ -11,15 +30,8 @@ npm install
 npm run dev
 ```
 
-Open the address Vite prints, usually http://localhost:5173.
+Open http://localhost:5173 for the scrolling map, or http://localhost:5173/branching for Branching Discovery.
 
-## Try this
+## Deploy
 
-1. Click **CoderDojo**. A row appears with DigiCafé beside two sample neighbors.
-2. Click **See More** on DigiCafé. The rows do not change.
-3. Close the detail, then click **Back**.
-4. Click **Storytelling sessions**, then **Saturday at the library**. The next row shows real Saturday times for DigiCafé, MakersClub, and CoderDojo.
-
-Cards marked **Sample** were written for this demo. They are not confirmed current listings. MakersClub, the MakersPlaats machines, CoderDojo, and DigiCafé follow public descriptions from Bibliotheek Eindhoven. Some cards are facets of those offerings (a project or a tool), not separate events. The detail view says so.
-
-Illustrations are drawn for this prototype in the library palette. They are not publisher covers.
+The site is set up for Netlify. The build command is `npm run build` and the published folder is `dist`. The repository is https://github.com/shamsabdulwhab/Searchless.

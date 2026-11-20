@@ -389,7 +389,7 @@ export default function FreeScrolling() {
           <p className="scroll-kicker">Searchless Library</p>
         </div>
         <nav className="scroll-nav">
-          <a className="scroll-link" href="/">
+          <a className="scroll-link" href="/branching">
             Branching Discovery
           </a>
         </nav>

@@ -48,14 +48,19 @@ export default function App() {
             <h1>Searchless Library</h1>
             <p className="subtitle">Branching Discovery</p>
           </div>
-          <button
-            type="button"
-            className="text-link back"
-            onClick={goBack}
-            disabled={path.length === 0}
-          >
-            Back
-          </button>
+          <div className="header-actions">
+            <a className="text-link" href="/">
+              Scrolling map
+            </a>
+            <button
+              type="button"
+              className="text-link back"
+              onClick={goBack}
+              disabled={path.length === 0}
+            >
+              Back
+            </button>
+          </div>
         </div>
       </header>
 

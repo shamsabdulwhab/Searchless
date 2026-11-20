@@ -6,8 +6,8 @@ import "./styles.css";
 
 function Root() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
-  if (path === "/scrolling") return <FreeScrolling />;
-  return <App />;
+  if (path === "/branching") return <App />;
+  return <FreeScrolling />;
 }
 
 createRoot(document.getElementById("root")).render(
