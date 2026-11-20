@@ -1,0 +1,448 @@
+.free-scroll {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  color: #26344d;
+  background:
+    radial-gradient(900px 420px at 12% 0%, rgba(144, 181, 226, 0.45), transparent 60%),
+    #f4f6f8;
+  font-family: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
+}
+
+.free-scroll button,
+.free-scroll a {
+  font: inherit;
+}
+
+.scroll-top {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 18px 22px 28px;
+  pointer-events: none;
+  background: linear-gradient(#f4f6f8, rgba(244, 246, 248, 0));
+}
+
+.scroll-top a,
+.scroll-hint,
+.scroll-detail,
+.scroll-sheet button {
+  pointer-events: auto;
+}
+
+.scroll-kicker {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #507db0;
+}
+
+.free-scroll h1 {
+  margin: 2px 0 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #26344d;
+}
+
+.scroll-nav {
+  display: flex;
+  gap: 18px;
+}
+
+.scroll-link {
+  color: #507db0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.scroll-link:hover,
+.scroll-link:focus-visible {
+  color: #26344d;
+}
+
+.scroll-stage {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.scroll-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.scroll-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.scroll-history {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  color: #26344d;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  text-align: center;
+  pointer-events: none;
+}
+
+.scroll-history span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.scroll-picture,
+.scroll-card {
+  border-width: 6px;
+  border-style: solid;
+  border-color: #507db0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.scroll-picture[data-kind="workshop"],
+.scroll-card[data-kind="workshop"] {
+  border-color: #d97775;
+}
+
+.scroll-picture[data-kind="event"],
+.scroll-card[data-kind="event"] {
+  border-color: #f28c28;
+}
+
+.scroll-picture {
+  position: absolute;
+  background: #90b5e2;
+  box-shadow: 0 10px 28px rgba(38, 52, 77, 0.12);
+  overflow: hidden;
+}
+
+.scroll-picture button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.scroll-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.scroll-picture:hover,
+.scroll-picture:focus-within {
+  z-index: 4;
+  transform: scale(1.06);
+}
+
+.scroll-picture[data-kind="book"]:hover,
+.scroll-picture[data-kind="book"]:focus-within {
+  box-shadow: 0 0 0 2px #507db0, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-picture[data-kind="workshop"]:hover,
+.scroll-picture[data-kind="workshop"]:focus-within {
+  box-shadow: 0 0 0 2px #d97775, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-picture[data-kind="event"]:hover,
+.scroll-picture[data-kind="event"]:focus-within {
+  box-shadow: 0 0 0 2px #f28c28, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-picture:hover img,
+.scroll-picture:focus-within img {
+  transform: none;
+}
+
+.scroll-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 28px 10px 10px;
+  background: linear-gradient(transparent, rgba(38, 52, 77, 0.9));
+  color: #f4f6f8;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.scroll-picture:hover .scroll-caption,
+.scroll-picture:focus-within .scroll-caption {
+  opacity: 1;
+}
+
+.scroll-caption-kind {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #90b5e2;
+}
+
+.scroll-card {
+  position: absolute;
+  background: #90b5e2;
+  box-shadow: 0 10px 28px rgba(38, 52, 77, 0.12);
+}
+
+.scroll-card:hover,
+.scroll-card:focus-within {
+  z-index: 4;
+  transform: scale(1.04);
+}
+
+.scroll-card[data-kind="book"]:hover,
+.scroll-card[data-kind="book"]:focus-within {
+  box-shadow: 0 0 0 2px #507db0, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-card[data-kind="workshop"]:hover,
+.scroll-card[data-kind="workshop"]:focus-within {
+  box-shadow: 0 0 0 2px #d97775, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-card[data-kind="event"]:hover,
+.scroll-card[data-kind="event"]:focus-within {
+  box-shadow: 0 0 0 2px #f28c28, 0 16px 34px rgba(38, 52, 77, 0.22);
+}
+
+.scroll-card-hit {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.scroll-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.45s ease;
+}
+
+.scroll-card:hover img,
+.scroll-card:focus-within img {
+  transform: none;
+}
+
+.scroll-card-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 36px 12px 12px;
+  background: linear-gradient(transparent, rgba(38, 52, 77, 0.9));
+  color: #f4f6f8;
+}
+
+.scroll-type {
+  margin: 0 0 4px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #90b5e2;
+}
+
+.scroll-card h2,
+.scroll-sheet h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 560;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.scroll-teaser {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #f4f6f8;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease;
+}
+
+.scroll-card:hover .scroll-teaser,
+.scroll-card:focus-within .scroll-teaser {
+  max-height: 4.4em;
+  margin-top: 6px;
+  opacity: 1;
+}
+
+.scroll-close {
+  border: 0;
+  background: #507db0;
+  color: #f4f6f8;
+  cursor: pointer;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scroll-close:hover,
+.scroll-close:focus-visible {
+  background: #26344d;
+}
+
+.scroll-hint {
+  position: absolute;
+  z-index: 3;
+  left: 18px;
+  bottom: 22px;
+  margin: 0;
+  max-width: 36ch;
+  color: #929ca6;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  pointer-events: none;
+}
+
+.scroll-legend {
+  position: absolute;
+  z-index: 3;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  list-style: none;
+  background: rgba(244, 246, 248, 0.92);
+  border: 1px solid #929ca6;
+  color: #26344d;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.scroll-legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.scroll-legend i {
+  width: 14px;
+  height: 14px;
+  border: 6px solid #507db0;
+}
+
+.scroll-legend i[data-kind="workshop"] {
+  border-color: #d97775;
+}
+
+.scroll-legend i[data-kind="event"] {
+  border-color: #f28c28;
+}
+
+.scroll-detail {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(38, 52, 77, 0.55);
+}
+
+.scroll-sheet {
+  width: min(560px, 100%);
+  max-height: min(860px, 100%);
+  overflow: auto;
+  background: #f4f6f8;
+  border: 1px solid #929ca6;
+  color: #26344d;
+}
+
+.scroll-sheet img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.scroll-sheet-body {
+  padding: 16px 18px 18px;
+}
+
+.scroll-sheet-body > p {
+  margin: 10px 0 0;
+}
+
+.scroll-note {
+  color: #929ca6;
+  font-size: 0.92rem;
+}
+
+.scroll-close {
+  margin-top: 16px;
+  padding: 10px 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-card img,
+  .scroll-picture,
+  .scroll-card,
+  .scroll-caption,
+  .scroll-picture img,
+  .scroll-teaser {
+    transition: none;
+  }
+}

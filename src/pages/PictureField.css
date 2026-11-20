@@ -1,0 +1,244 @@
+.picture-field {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #fbfbfb;
+  color: #26344d;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.picture-field button,
+.picture-field a {
+  font: inherit;
+}
+
+.field-top {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 18px 22px 36px;
+  pointer-events: none;
+  background: linear-gradient(#fbfbfb, rgba(251, 251, 251, 0));
+}
+
+.field-top a,
+.field-detail,
+.field-sheet button {
+  pointer-events: auto;
+}
+
+.field-kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #507db0;
+}
+
+.picture-field h1 {
+  margin: 2px 0 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.field-note {
+  margin: 4px 0 0;
+  max-width: 42ch;
+  color: #929ca6;
+  font-size: 0.82rem;
+}
+
+.field-top nav {
+  display: flex;
+  gap: 18px;
+}
+
+.field-top a {
+  color: #507db0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.field-top a:hover,
+.field-top a:focus-visible {
+  color: #26344d;
+}
+
+.field-stage {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.field-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.field-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.field-pic {
+  position: absolute;
+  background: #fff;
+}
+
+.field-pic button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.field-pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.field-pic:hover,
+.field-pic:focus-within {
+  z-index: 4;
+}
+
+.field-pic:hover img,
+.field-pic:focus-within img {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(38, 52, 77, 0.18);
+}
+
+.field-name {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  max-width: 22ch;
+  color: #26344d;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.field-pic:hover .field-name,
+.field-pic:focus-within .field-name {
+  opacity: 1;
+}
+
+.field-label {
+  position: absolute;
+  margin: 0;
+  color: #26344d;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  pointer-events: none;
+}
+
+.field-label span {
+  display: block;
+}
+
+.field-hint {
+  position: absolute;
+  z-index: 3;
+  left: 18px;
+  bottom: 22px;
+  margin: 0;
+  color: #929ca6;
+  font-size: 0.78rem;
+}
+
+.field-sheet button:hover,
+.field-sheet button:focus-visible {
+  background: #26344d;
+}
+
+.field-detail {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(38, 52, 77, 0.45);
+}
+
+.field-sheet {
+  width: min(520px, 100%);
+  max-height: min(860px, 100%);
+  overflow: auto;
+  background: #fbfbfb;
+  color: #26344d;
+}
+
+.field-sheet img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.field-sheet-body {
+  padding: 16px 18px 18px;
+}
+
+.field-sheet h2 {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.field-sheet p {
+  margin: 8px 0 0;
+}
+
+.field-license {
+  color: #929ca6;
+  font-size: 0.92rem;
+}
+
+.field-sheet button {
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: 0;
+  background: #507db0;
+  color: #f4f6f8;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-pic img {
+    transition: none;
+  }
+}

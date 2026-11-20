@@ -1,0 +1,393 @@
+:root {
+  --bg: #111110;
+  --ink: #f4f1ea;
+  --muted: #a39e94;
+  --faint: #7a756c;
+  --line: rgba(244, 241, 234, 0.2);
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Inter", "Segoe UI", sans-serif;
+  --header: 76px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+body.detail-open {
+  overflow: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 28px 8px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  background: none;
+  color: var(--muted);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--ink);
+}
+
+.back:disabled {
+  color: var(--faint);
+  cursor: default;
+}
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 28px 56px;
+}
+
+.lede {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.branch-row {
+  margin-top: 36px;
+  scroll-margin-top: calc(var(--header) + 12px);
+}
+
+.branch-row h2 {
+  margin: 0 0 16px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px 28px;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: 0;
+  min-width: 0;
+}
+
+.card-open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card-open.is-static {
+  cursor: default;
+}
+
+.card-open:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.cover-frame {
+  display: block;
+  overflow: hidden;
+  height: 210px;
+  background: #1a1a18;
+  outline: 1px solid transparent;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 0.45s ease;
+}
+
+.card:hover .cover {
+  transform: scale(1.04);
+}
+
+.card:hover .cover-frame {
+  outline-color: var(--line);
+}
+
+.card.is-selected .cover-frame {
+  outline-color: var(--ink);
+}
+
+.card-copy,
+.card-action,
+.dialog-body {
+  background: transparent;
+}
+
+.card-copy {
+  padding: 14px 0 0;
+}
+
+.card-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-type {
+  margin: 0;
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.card h3,
+.dialog h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 560;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.card-teaser,
+.detail-copy,
+.because {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.card-teaser {
+  color: #ddd8cf;
+}
+
+.card-action {
+  margin-top: auto;
+  padding: 14px 0 0;
+}
+
+.row-enter .card {
+  animation: settle 0.5s ease both;
+}
+
+.row-enter .card:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.row-enter .card:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px 48px;
+  color: var(--faint);
+  font-family: var(--serif);
+  font-size: 0.92rem;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.dialog {
+  width: min(640px, 100%);
+  max-height: min(860px, 100%);
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.dialog .cover-frame {
+  height: 240px;
+}
+
+.dialog-body {
+  padding: 18px 22px 22px;
+}
+
+.dialog-body .card-heading {
+  margin-bottom: 4px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 8px 12px;
+  margin: 16px 0 0;
+  font-family: var(--serif);
+}
+
+.facts dt {
+  color: var(--faint);
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.notice {
+  margin: 12px 0 0;
+  color: var(--faint);
+  font-size: 0.92rem;
+}
+
+.dialog .text-link {
+  margin-top: 18px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 860px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .header-inner {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .row-enter .card {
+    animation: none;
+  }
+
+  .cover {
+    transition: none;
+    transform: none;
+  }
+}
